@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>Место</title>
+</head>
+<body class="page">
+  <div class="page__container">
+    <div class="popup">
+      <div class="popup__overlay"></div>
+      <div class="popup__container">
+        <img class="popup__closeButton" src="images/CloseIcon.svg">
+        <p class="popup__edit-form">Редактировать профиль</p>
+        <form class="popup__form">
+          <input type="text" placeholder="Имя" class="popup__text popup__name">
+          <input type="text" placeholder="О себе" class="popup__text popup__bio">
+          <button type="submit" class="popup__saveButton">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <header class="header">
+    <img class="header__logo" src="images/logo.svg" alt="лого">
+    </header>
+    <main>
+      <section class="profile">
+        <img class="profile__avatar" src="images/avatar.jpg" alt="аватар">
+        <div class="profile__info">
+          <div>
+            <p type="text" class="profile__name">Жак-Ив Кусто</p>
+            <p type="text" class="profile__bio">Исследователь океана</p>
+          </div>
+          <div class="profile__editButton" id="open_popup_btn" >
+            <img class="icon" src="images/editButton.svg" alt="кнопка изменения">
+          </div>
+        </div>
+        <div class="profile__addButton">
+          <img class="icon" src="images/addButton.svg" alt="кнопка добавления">
+        </div>
+      </section>
+      <section class="elements">
+        <div class="element">
+          <img class="element__photo" src="./images/kirill-pershin-dombai.jpg" alt="Домбай">
+          <div class="element__discription">
+            <p class="element__name">Домбай</p>
+            <img class="element__like" src="./images/like.svg" alt="лайк">
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__photo" src="./images/kirill-pershin-karachaevsk.jpg" alt="Карачаевск">
+          <div class="element__discription">
+            <p class="element__name">Карачаевск</p>
+            <img class="element__like" src="./images/like.svg" alt="лайк">
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__photo" src="./images/kirill-pershin-elbrus.jpg" alt="Эльбрус">
+          <div class="element__discription">
+            <p class="element__name">Гора Эльбрус</p>
+            <img class="element__like" src="./images/like.svg" alt="лайк">
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__photo" src="./images/jezael-melgoza-tokyo.jpg" alt="Токио">
+          <div class="element__discription">
+            <p class="element__name">Токио</p>
+            <img class="element__like" src="./images/like.svg" alt="лайк">
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__photo" src="./images/liza-azorina-saintp.jpg" alt="Санкт-Петербург">
+          <div class="element__discription">
+            <p class="element__name">Санкт-Петербург</p>
+            <img class="element__like" src="./images/like.svg" alt="лайк">
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__photo" src="./images/zck_london.jpg" alt="Лондон">
+          <div class="element__discription">
+            <p class="element__name">Лондон</p>
+            <img class="element__like" src="./images/like.svg" alt="лайк">
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>© 2020 Mesto Russia</p>
+    </footer>
+  </div>
+<script src="scripts/index.js"></script>
+</body>
+</html>
