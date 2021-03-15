@@ -13,4 +13,7 @@
 * Выгрузка фото
 * сохранение информации при апдейте
 
+**Работа на GitHub**
+https://arklit.github.io/mesto/index.html
+
 
