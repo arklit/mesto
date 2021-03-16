@@ -10,7 +10,7 @@
   line-height: 22px;
 }
 .popup__saveButton:hover {
-  opacity: 0.6
+  opacity: 0.6;
 }
 @media screen and (max-width: 767px) {
   .popup__saveButton {
