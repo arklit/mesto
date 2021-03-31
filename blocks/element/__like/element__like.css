@@ -4,16 +4,12 @@
   height: 19px;
   border: none;
   padding: 0;
-  margin: 5px;
+  background-repeat: no-repeat;
+  margin-top: 5px;
   background-color: transparent;
   outline: none;
   cursor: pointer;
 }
 .element__like:hover {
   opacity: 0.5;
-
-}.element__like:active {
-  background-image: url(../../../images/like_active.svg);
-  opacity: 1;
-  border: none;
 }
