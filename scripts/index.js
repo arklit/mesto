@@ -101,8 +101,11 @@ addCard.addEventListener('submit', imageFormSumbitHandler,);
 
 function insertElements(item) {
   const element = template.cloneNode(true);
- const elementName = element.querySelector('.element__name').textContent = item.name;
- const elementImage = element.querySelector('.element__photo').src = item.link;
+ const elementName = element.querySelector('.element__name');
+ const elementImage = element.querySelector('.element__photo');
+ elementName.textContent = item.name;
+ elementImage.src = item.link;
+ elementImage.alt = item.name;
  elements.append(element);
  const likeBtn = element.querySelector('.element__like');
  likeBtn.addEventListener('click', e => likeBtn.classList.toggle('element__like_active'));
@@ -110,6 +113,7 @@ function insertElements(item) {
  removeBtn.addEventListener('click', e => element.remove());
   function imageClickHandler(e) {
     openPopupImage();
+    popupImage.alt = item.name;
     popupImage.src = item.link;
     popupCaption.textContent = item.name;
   };
