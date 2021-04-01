@@ -95,6 +95,8 @@ const imageFormSumbitHandler = e => {
   };
   insertElements(inputValues);
   closePopupcard();
+  cardImageInput.value = '';
+  cardNameInput.value = '';
 };
 
 addCard.addEventListener('submit', imageFormSumbitHandler,);
@@ -106,7 +108,7 @@ function insertElements(item) {
  elementName.textContent = item.name;
  elementImage.src = item.link;
  elementImage.alt = item.name;
- elements.append(element);
+ elements.prepend(element);
  const likeBtn = element.querySelector('.element__like');
  likeBtn.addEventListener('click', e => likeBtn.classList.toggle('element__like_active'));
  const removeBtn = element.querySelector('.element__trash');
