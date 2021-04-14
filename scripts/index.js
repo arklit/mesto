@@ -1,4 +1,3 @@
-const popup = document.querySelector('.popup');
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const openEditUserProfileBtn = document.getElementById('open_popup_btn');
 const closeEditUserProfileBtn = popupEditProfile.querySelector('.popup__close-button');
@@ -17,11 +16,28 @@ const popupTypeImage = document.querySelector('.popup_type-image');
 const popupImage = popupTypeImage.querySelector('.popup__image');
 const popupCaption = popupTypeImage.querySelector('.popup__image-caption');
 const closePopupImageBtn = popupTypeImage.querySelector('.popup__close-button');
-const profileCardForm = popupCard.querySelector('.popup__form');
+
 
 function togglePopup(popup) {
   popup.classList.toggle('popup_opened')
 };
+
+
+document.addEventListener('keydown', function(evt) {
+  if (evt.key === "Escape") {
+    popupEditProfile.classList.remove('popup_opened');
+    popupCard.classList.remove("popup_opened");
+    popupTypeImage.classList.remove("popup_opened");
+  };
+});
+
+document.addEventListener('click', function(evt) {
+ if (evt.target.classList.contains('popup')) {
+  popupEditProfile.classList.remove('popup_opened');
+  popupCard.classList.remove("popup_opened");
+  popupTypeImage.classList.remove("popup_opened");
+ };
+});
 
 function openPopupEdit() {
   togglePopup(popupEditProfile);
