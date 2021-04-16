@@ -1,30 +1,11 @@
-  const enableValidation= ({
+  const validationConfig = ({
   formProfile: '.popup__form[name="profile-form"]',
   formCard: '.popup__form[name="picture-add-form"]',
-  inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button_invalid',
-  activeButtonClass: 'popup__button_valid',
-  inputErrorClass: 'popup__error'
 });
 
-const formProfile = document.querySelector(enableValidation.formProfile);
-formProfile.addEventListener('submit', handleFormSubmit)
-formProfile.addEventListener('input', function (event) {
- const input = event.target;
- setCustomError(input);
- setFieldError(input);
- setSubmitButtonState(formProfile);
-});
-
-const formCard = document.querySelector(enableValidation.formCard);
-formCard.addEventListener('submit', handleFormSubmit)
-formCard.addEventListener('input', function (event) {
- const input = event.target;
- setCustomError(input);
- setFieldError(input);
- setSubmitButtonState(formCard);
-});
+function enableValidation(validationConfig) {
 
 function handleFormSubmit(event) {
   event.preventDefault();
@@ -32,7 +13,10 @@ function handleFormSubmit(event) {
   const isValid = form.checkValidity();
     if (isValid) {
         form.reset();
-    };
+    }
+    else {
+      toggleSubmitButtonState(form);
+    }
 }
 
 function setFieldError(field) {
@@ -40,23 +24,20 @@ function setFieldError(field) {
   span.textContent = field.validationMessage;
 };
 
-function setSubmitButtonState(form) {
-const button = form.querySelector(enableValidation.submitButtonSelector);
+function toggleSubmitButtonState(form) {
+const button = form.querySelector(validationConfig.submitButtonSelector);
 const isValid = form.checkValidity();
 if (isValid) {
   button.removeAttribute('disabled');
-  button.classList.add(enableValidation.activeButtonClass);
-  button.classList.remove(enableValidation.inactiveButtonClass);
+  button.classList.remove(validationConfig.inactiveButtonClass);
 } else {
   button.setAttribute('disabled', true);
-  button.classList.remove(enableValidation.activeButtonClass);
-  button.classList.add(enableValidation.inactiveButtonClass);
+  button.classList.add(validationConfig.inactiveButtonClass);
 }
 }
 
 function setCustomError(input) {
   const validity = input.validity;
-
   input.setCustomValidity('');
   if (validity.tooShort || validity.tooLong) {
       const current = input.value.length;
@@ -68,3 +49,24 @@ function setCustomError(input) {
       input.setCustomValidity('Здесь должна быть ссылка');
   }
 }
+
+const formProfile = document.querySelector(validationConfig.formProfile);
+formProfile.addEventListener('submit', handleFormSubmit)
+formProfile.addEventListener('input', function (event) {
+ const input = event.target;
+ setCustomError(input);
+ setFieldError(input);
+ toggleSubmitButtonState(formProfile);
+});
+
+const formCard = document.querySelector(validationConfig.formCard);
+formCard.addEventListener('submit', handleFormSubmit)
+formCard.addEventListener('input', function (event) {
+ const input = event.target;
+ setCustomError(input);
+ setFieldError(input);
+ toggleSubmitButtonState(formCard);
+});
+};
+
+enableValidation(validationConfig);

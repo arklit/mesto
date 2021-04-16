@@ -1,8 +1,0 @@
-.popup__button_valid {
-  color: white;
-  background-color: black;
-  opacity: 1;
-}
-.popup__button_valid:hover {
-  opacity: 0.8;
-}
