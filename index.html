@@ -14,10 +14,10 @@
         <button type="button" class="popup__close-button"></button>
         <h2 class="popup__edit-form">Редактировать профиль</h2>
         <form name="profile-form" class="popup__form">
-          <input name="name" type="text" placeholder="Имя" class="popup__text popup__text_type_name popup__input" minlength="2" maxlength="40" required>
-          <span class="popup__error"></span>
-          <input name="biography" type="text" placeholder="О себе" class="popup__text popup__text_type_bio popup__input" minlength="2" maxlength="200" required>
-          <span class="popup__error"></span>
+          <input name="name" type="text" placeholder="Имя" id="name-input" class="popup__text popup__text_type_name popup__input" minlength="2" maxlength="40" required>
+          <span class="popup__input-error name-input-error"></span>
+          <input name="biography" type="text" placeholder="О себе" id="bio-input" class="popup__text popup__text_type_bio popup__input" minlength="2" maxlength="200" required>
+          <span class="popup__input-error bio-input-error"></span>
           <button disabled type="submit" class="popup__save-button popup__button_invalid popup__button">Сохранить</button>
         </form>
       </div>
@@ -28,10 +28,10 @@
         <button type="button" class="popup__close-button"></button>
         <h2 class="popup__edit-form">Новое место</h2>
         <form name="picture-add-form" class="popup__form">
-          <input name="title" type="text" placeholder="Название" class="popup__text popup__text_card_name popup__input" minlength="2" maxlength="30" required>
-          <span class="popup__error" ></span>
-          <input name="link" type="url" placeholder="Ссылка на картинку" class="popup__text popup__text_card_img popup__input" required>
-          <span class="popup__error"></span>
+          <input name="title" type="text" placeholder="Название" id="title-input" class="popup__text popup__text_card_name popup__input" minlength="2" maxlength="30" required>
+          <span class="popup__input-error title-input-error" ></span>
+          <input name="link" type="url" placeholder="Ссылка на картинку" id="url-input" class="popup__text popup__text_card_img popup__input" required>
+          <span class="popup__input-error url-input-error"></span>
           <button disabled type="submit" class="popup__save-button popup__button_invalid popup__button">Создать</button>
         </form>
       </div>
@@ -56,7 +56,7 @@
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <p class="profile__bio">Исследователь океана</p>
           </div>
-          <button type="button" class="profile__edit-button" id="open_popup_btn" >
+          <button type="button" class="profile__edit-button">
             <img class="icon" src="images/editButton.svg" alt="кнопка изменения">
           </button>
         </div>
