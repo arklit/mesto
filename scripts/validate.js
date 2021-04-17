@@ -10,13 +10,13 @@
 const formElement = document.querySelector(validationConfig.formElement);
 const formInput = formElement.querySelector(validationConfig.inputElement);
 
-const showInputError = (formElement, formInput, errorMessage, validationConfig) => {
+const showInputError = (formElement, formInput, errorMessage) => {
   const errorElement = formElement.querySelector(`.${formInput.id}-error`);
   formInput.classList.add(validationConfig.inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(validationConfig.inputErrorActive);
 };
-const hideInputError = (formElement, formInput, validationConfig) => {
+const hideInputError = (formElement, formInput) => {
   const errorElement = formElement.querySelector(`.${formInput.id}-error`);
   formInput.classList.remove(validationConfig.inputErrorClass);
   errorElement.classList.remove(validationConfig.inputErrorActive);
@@ -30,7 +30,7 @@ const checkInputValidity = (formElement, formInput) => {
     hideInputError(formElement,formInput);
   }
 }
-const setEventListeners = (formElement, validationConfig) => {
+const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputElement));
   const buttonElement = formElement.querySelector(validationConfig.submitButtonSelector);
   toggleButtonState(inputList, buttonElement);
@@ -42,7 +42,7 @@ const setEventListeners = (formElement, validationConfig) => {
   });
 };
 
-const enableValidation = (validationConfig) => {
+const enableValidation = () => {
   const formList = Array.from(document.querySelectorAll(validationConfig.formElement));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
@@ -57,7 +57,7 @@ function hasInvalidInput(inputList) {
     return !formInput.validity.valid
   });
 }
-function toggleButtonState (inputList, buttonElement, validationConfig) {
+function toggleButtonState (inputList, buttonElement) {
   if (hasInvalidInput(inputList)) {
     buttonElement.setAttribute('disabled',true);
     buttonElement.classList.add(validationConfig.inactiveButtonClass);
