@@ -28,8 +28,7 @@ const handlerAddCardFormSubmit = e => {
  const cardElement = createCard(inputValues);
  elements.prepend(cardElement);
   closePopup(popupCard);
-  cardImageInput.value = '';
-  cardNameInput.value = '';
+  cardFormAdd.reset();
 };
 
 function keyHandler(evt) {
@@ -88,19 +87,17 @@ function createCard(item) {
 };
 
 popupEditBtn.addEventListener('click', function () {
-openPopup(popupCard);
-  cardImageInput.value = '';
-  cardNameInput.value = '';
+  enableValidation(validationConfig);
+  cardFormAdd.reset();
+  openPopup(popupCard);
 });
 btnPopupCardClose.addEventListener('click', function () {
   closePopup(popupCard);
-  cardImageInput.value = '';
-  cardNameInput.value = '';
+  cardFormAdd.reset();
 });
 btnEditUserProfileClose.addEventListener('click', function () {
- closePopup(popupEditProfile)
- nameInput.value = '';
- bioInput.value='';
+ closePopup(popupEditProfile);
+ formEditProfile.reset();
 });
 formEditProfile.addEventListener('submit', handlereditProfileFormSubmit);
 btnEditUserProfileOpen.addEventListener('click', () => openPopupEdit());
