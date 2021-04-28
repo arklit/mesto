@@ -25,7 +25,7 @@ _handlerDelete() {
      this._setEventListeners();
      this._element.querySelector('.element__photo').src = this._image;
      this._element.querySelector('.element__name').textContent = this._name;
-     this._element.querySelector('.element__name').alt = this._name;
+     this._element.querySelector('.element__photo').alt = this._name;
      return this._element;
  }
 }
