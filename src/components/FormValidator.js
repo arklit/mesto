@@ -66,5 +66,9 @@ class FormValidator {
       this._buttonElement.classList.remove(this._inactiveButtonClass);
     }
   }
+  hideErrorForm() {
+    this._inputList.forEach((formInput) => this._hideInputError(formInput));
+    this.disableSubmitButton()
+  }
 }
 export {FormValidator}
