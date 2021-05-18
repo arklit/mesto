@@ -16,7 +16,9 @@ import {
   userBioContent,
   popupCard,
   btnAddCardPopup,
-  popupTypeImage
+  popupTypeImage,
+  elements,
+  template
 } from '../utils/constants.js';
 
 const userInfo = new UserInfo(userNameContent,userBioContent);
@@ -25,7 +27,7 @@ const formAddCardValidate = new FormValidator(validationConfig, popupCard);
 const popupWithImage = new PopupWithImage(popupTypeImage);
 
 function createCard(item) {
-  const card = new Card(item, '.template', {
+  const card = new Card(item, template, {
     handlerImageClick() {
       popupWithImage.open(item.link, item.name);
     }
@@ -40,7 +42,7 @@ const cardList = new Section( {
     const cardElement = createCard(item);
     cardList.addItem(cardElement);
   }
-}, '.elements')
+}, elements)
 
 cardList.renderItems();
 

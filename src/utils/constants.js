@@ -7,6 +7,8 @@ const userBioContent = document.querySelector('.profile__bio');
 const popupCard = document.querySelector('.popup_card');
 const btnAddCardPopup = document.querySelector('.profile__add-button');
 const popupTypeImage = document.querySelector('.popup_type-image');
+const elements = document.querySelector('.elements');
+const template = document.querySelector('.template');
 
 const validationConfig = ({
   formElement: '.popup__form',
@@ -54,5 +56,7 @@ export {
   userBioContent,
   popupCard,
   btnAddCardPopup,
-  popupTypeImage
+  popupTypeImage,
+  elements,
+  template
 };
