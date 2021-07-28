@@ -4,12 +4,17 @@ const nameInput = document.querySelector('.popup__text_type_name');
 const bioInput = document.querySelector('.popup__text_type_bio');
 const userNameContent = document.querySelector('.profile__name');
 const userBioContent = document.querySelector('.profile__bio');
+const userAvatar = document.querySelector('.profile__avatar');
 const popupCard = document.querySelector('.popup_card');
 const btnAddCardPopup = document.querySelector('.profile__add-button');
 const popupTypeImage = document.querySelector('.popup_type-image');
-const elements = document.querySelector('.elements');
-const template = document.querySelector('.template');
-
+const popupAvatar = document.querySelector('.popup_avatar');
+const btnOpenAvatarPopup = document.querySelector('.profile__avatar-button');
+const popupDelete = document.querySelector('.popup_delete');
+const popupEditSubmit = document.querySelector('.popup__submit-profile');
+const popupCardSubmit = document.querySelector('.popup__submit-card');
+const popupAvatarSubmit = document.querySelector('.popup__submit-avatar');
+const popupDeleteSubmit = document.querySelector('.popup__submit-delete')
 const validationConfig = ({
   formElement: '.popup__form',
   inputElement: '.popup__input',
@@ -49,14 +54,20 @@ export {
   validationConfig,
   initialCards,
   popupEditProfile,
+  popupDelete,
   btnEditUserProfileOpen,
   nameInput,
   bioInput,
+  popupEditSubmit,
+  popupCardSubmit,
+  popupAvatarSubmit,
+  popupDeleteSubmit,
   userNameContent,
   userBioContent,
   popupCard,
   btnAddCardPopup,
   popupTypeImage,
-  elements,
-  template
+  popupAvatar,
+  btnOpenAvatarPopup,
+  userAvatar
 };
