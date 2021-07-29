@@ -58,8 +58,7 @@ function createCard(item) {
     handlerImageLike: (cardId) => {
       api.likeCard(cardId)
         .then(({likes}) => {
-          card._likes = likes;
-          card.updateLikeCount();
+          card.updateLikeCount(likes);
         })
         .catch((err) => {
           console.log(err)
@@ -68,8 +67,7 @@ function createCard(item) {
     handlerImageDislike: (cardId) => {
       api.removeLike(cardId)
         .then(({likes}) => {
-          card._likes = likes;
-          card.updateLikeCount();
+          card.updateLikeCount(likes);
         })
         .catch((err) => {
           console.log(err)
@@ -110,6 +108,7 @@ const popupAddCard = new PopupWithForm(popupCard, {
       .then(result => {
         const element = createCard(result)
         cardList.addItem(element, 'prepend');
+        popupAddCard.close();
       })
       .catch((err) => {
         console.log(err)
@@ -117,7 +116,6 @@ const popupAddCard = new PopupWithForm(popupCard, {
       .finally(() => {
         popupCardSubmit.textContent = "Создать"
       })
-    popupAddCard.close();
   }
 });
 
@@ -155,23 +153,12 @@ const popupWithAva = new PopupWithForm(popupAvatar, {
   }
 })
 
-Promise.all([
-  api.getUserInfo()
-    .then((data) => {
-      userInfo.setUserInfo(data.name, data.about, data._id)
-      userInfo.setAvatar(data.avatar)
-    })
-    .catch((err) => {
-      console.log(err)
-    }),
-  api.getInitialCards()
-    .then(data => {
-      cardList.renderer(data)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-])
+Promise.all([ api.getUserInfo(), api.getInitialCards() ])
+  .then(([ userData, cards ]) => {
+    userInfo.setUserInfo(userData.name, userData.about, userData._id);
+    userInfo.setAvatar(userData.avatar)
+    cardList.renderer(cards);
+  })
   .catch(error => console.log(error))
 
 function openPopupAddCard() {
