@@ -69,11 +69,12 @@ class Card {
 
  _likeCard() {
    this._handlerImageLike(this._id);
-   this._element.querySelector(this._cardLike).classList.toggle("element__like_active");
 }
+  updateLikeStatus() {
+    this._element.querySelector(this._cardLike).classList.toggle("element__like_active");
+ }
  _dislikeCard() {
    this._handlerImageDislike(this._id);
-   this._element.querySelector(this._cardLike).classList.toggle("element__like_active");
  }
 _handlerDelete() {
   this._handlerImageDelete(this._id, this._element);

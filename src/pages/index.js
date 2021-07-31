@@ -59,6 +59,7 @@ function createCard(item) {
       api.likeCard(cardId)
         .then(({likes}) => {
           card.updateLikeCount(likes);
+          card.updateLikeStatus()
         })
         .catch((err) => {
           console.log(err)
@@ -68,6 +69,7 @@ function createCard(item) {
       api.removeLike(cardId)
         .then(({likes}) => {
           card.updateLikeCount(likes);
+          card.updateLikeStatus()
         })
         .catch((err) => {
           console.log(err)
